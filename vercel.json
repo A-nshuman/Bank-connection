@@ -1,0 +1,14 @@
+{
+    "builds": [
+        {
+            "src": "Aashirvaad Bank Main Webstie/app.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "Aashirvaad Bank Main Webstie/app.py"
+        }
+    ]
+}
