@@ -3,12 +3,12 @@ from DB_Operations import add_text, check_login_credentials, get_name
 import mysql.connector
 from datetime import datetime
 
-connection = mysql.connector.connect(host="sql12.freemysqlhosting.net", user="sql12649572", passwd="W7qvB34MYI", database="sql12649572")
+connection = mysql.connector.connect(host="", user="", passwd="", database="")
 cursor = connection.cursor()
 
 
 app = Flask(__name__, static_folder='static')
-app.secret_key = '123456'
+app.secret_key = ''
 
 @app.route("/")
 def index():
