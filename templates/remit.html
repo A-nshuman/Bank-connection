@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="{{ url_for('static', filename='images/AB logo bigger.png') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='remit.css') }}">
+    <title>Remittance</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    
+    <nav>
+        <a href="{{ url_for('dashboard') }}" class="logo"><img src="{{ url_for('static', filename='images/AB logo with text white.png') }}" alt="Bank Logo"></a>
+        <a href="{{ url_for('dashboard') }}" class="goback">&#8592; Back</a>
+    </nav>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+            <li class="flash">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+
+    <form action="/remit" method="POST">
+        <section class="remit">
+            <div class="container">
+                <div class="col">
+                    <div class="row1">
+                        <div class="inputfield">
+                            <label>Account to</label>
+                            <input type="text" name="acc" class="input" placeholder="Receiver's email" required>
+                        </div>
+            
+                        <div class="inputfield purpose">
+                            <label>Purpose</label>
+                            <div class="custom_select">
+                                <select>
+                                <option value="">Select</option>
+                                <option value="">Education</option>
+                                <option value="">Medical</option>
+                                <option value="">Gifting</option>
+                                <option value="">Donation</option>
+                                <option value="">Personal</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row2">
+                        <div class="inputfield">
+                            <label>Amount</label>
+                            <input type="number" name="amount" class="input" required>
+                        </div>
+            
+                        <div class="inputfield">
+                            <label>Password</label>
+                            <input type="password" name="upwd" class="input" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="narrative">
+                    <label>Narrative</label>
+                    <input class="input"></input>
+                </div>
+    
+                <div class="send-btn">
+                    <button><a href="{{ url_for('dashboard') }}">BACK</a></button>
+                    <button type="submit" onclick="openPopup()"><a href="">SEND</a></button>
+                </div>
+    
+            </div>    
+        </section>
+    </form>
+
+    <script src="{{ url_for('static', filename='remit.js') }}"></script>
+
+</body>
+</html>

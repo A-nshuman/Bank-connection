@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+  
+/* ----------- Navbar Start ----------- */
+nav {
+  background: rgb(255, 119, 34);
+  position: fixed;
+  z-index: 999;
+  height: 65px;
+  line-height: 65px;
+  position: relative;
+  max-width: 100%;
+  padding: 0 20px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav img {
+  margin-top: 25px;
+  height: 70px;
+  padding: 5px;
+}
+
+.goback {
+  font-size: 16px;
+  width: 100px;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  transition: ease-in-out 0.2s;
+  border-radius: 5px;
+}
+
+.goback:hover {
+  background-color: #fff;
+  color: rgb(255, 119, 34);
+  text-decoration: none;
+}
+/* ----------- Navbar End ----------- */
+
+#summary{
+    background: khaki;
+    min-height: 100vh;
+    padding-bottom: 20px;
+}
+
+.statement-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.statement-table th, .statement-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #979797;
+}
+
+.statement-table th {
+    background-color: #ff7722;
+    color: #fff;
+}
+
+.statement-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.statement-table tr:hover {
+    background-color: #ddd;
+}
+
+.time {
+    font-style: italic;
+}
+
+#summary h1{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    size: 30px;
+}
+
+@media (max-width: 395px) {
+    section#summary {
+      display: block;
+    }
+
+    nav{
+      display: flex;
+      flex-direction: row;
+    }
+
+    nav img{
+      margin-top: 20px;
+    }
+  
+    table.statement-table {
+      width: 100%;
+    }
+  
+    table.statement-table thead tr {
+      display: none;
+    }
+  
+    table.statement-table tbody tr {
+      display: block;
+      width: 100%;
+    }
+  
+    table.statement-table tbody td {
+      display: block;
+      width: 100%;
+    }
+  
+    table.statement-table tbody td:first-child {
+      font-weight: bold;
+    }
+  }
+  

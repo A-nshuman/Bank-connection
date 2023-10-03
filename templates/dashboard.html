@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="{{ url_for('static', filename='images/AB logo bigger.png') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="dashboard.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard.css') }}">
+    <title>Dashboard</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href="{{ url_for('dashboard') }}"><img src="{{ url_for('static', filename='images/AB logo with text white.png') }}" alt=""></a></div>
+            <input type="radio" name="slide" id="menu-btn">
+            <input type="radio" name="slide" id="cancel-btn">
+            <ul class="nav-links">
+                <div class="side-logo"><img src="{{ url_for('static', filename='images/AB logo with text white.png') }}" alt=""></div>
+                <label for="cancel-btn" class="btn cancel-btn"><span>&times;</span></label>
+                <!-- <i class="fas fa-times"></i> -->
+                <li><a href="{{ url_for('dashboard') }}">Overview</a></li>
+
+                <li>
+                    <a href="{{ url_for('loan') }}" class="desktop-item">Loans</a>
+                    <input type="checkbox" id="showDrop">
+                    <label for="showDrop" class="mobile-item">Loans</label>
+                    <ul class="drop-menu">
+                        <li><a href="{{ url_for('loan') }}">Personal Loan</a></li>
+                        <li><a href="{{ url_for('loan') }}">Home Loan</a></li>
+                        <li><a href="{{ url_for('loan') }}">Car Loan</a></li>
+                        <li><a href="{{ url_for('loan') }}">Education Loan</a></li>
+                        <li><a href="{{ url_for('loan') }}">Healthcare Loan</a></li>
+                        <li><a href="{{ url_for('loan') }}">Gold Loan</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="{{ url_for('remit') }}">Remittance</a></li>
+                
+                <li>
+                    <a href="#" class="desktop-item">Services</a>
+                    <input type="checkbox" id="showMega">
+                    <label for="showMega" class="mobile-item">Services</label>
+                    <div class="mega-box">
+                        <div class="content">
+                            <div class="row">
+                                <img src="{{ url_for('static', filename='images/offer 1.png') }}" alt="">
+                            </div>
+                            <div class="row">
+                                <header>Insurance</header>
+                                <ul class="mega-links">
+                                    <li><a href="{{ url_for('loan') }}"><i class="fa-solid fa-heart-pulse"></i> Life Insurance</a></li>
+                                    <li><a href="{{ url_for('loan') }}"><i class="fa-solid fa-suitcase-medical"></i> Health Insurance</a></li>
+                                    <li><a href="{{ url_for('loan') }}"><i class="fa-solid fa-car-side"></i> Vehicle Insurance</a></li>
+                                    <li><a href="{{ url_for('loan') }}"><i class="fa-solid fa-plane-departure"></i> Travel Insurance</a></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <header>Invest</header>
+                                <ul class="mega-links">
+                                    <li><a href="{{ url_for('fixed_dep') }}"><i class="fa-solid fa-money-bill-1-wave"></i> Fixed Deposit</a></li>
+                                    <li><a href="{{ url_for('rec_dep') }}"><i class="fa-solid fa-money-bills"></i></i> Recurring Deposit</a></li>
+                                    <li><a href="{{ url_for('stocks') }}"><i class="fa-solid fa-arrow-trend-up"></i> Invest in Stocks</a></li>
+                                    <li><a href="{{ url_for('mut_fund') }}"><i class="fa-solid fa-money-bill-transfer"></i> Mutual Funds</a></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <header>General</header>
+                                <ul class="mega-links">
+                                    <li><a href="#" id="down-btn"><i class="fa-solid fa-credit-card"></i> Credit/Debit Card</a></li>
+                                    <li><a href="{{ url_for('consult') }}"><i class="fa-solid fa-user"></i> Consultant</a></li>
+                                    <li><a href="{{ url_for('currency') }}"><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> Currency Conversion</a></li>
+                                    <li><a href="#"><i class="fa-solid fa-percent"></i> Offers</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li><a href="#about">About</a></li>
+
+                <li><a href="{{ url_for('index') }}" class="logout-btn">Logout</a></li>
+
+            </ul>
+            <label for="menu-btn" class="btn menu-btn"><span>&equiv;</span></label>
+            <!-- <i class="fas fa-bars"></i> -->
+        </div>
+    </nav>
+
+            <!-- Popup -->
+            <div id="popup" class="popup">
+                <div class="popup-content1">
+                    <h2>Credit Card Application</h2>
+                    <p>Enjoy special offers with <span>Aashirvaad Bank</span> credit card<br><br>Please confirm your application</p>
+                    <button id="closePopup">Close</button>
+                    <button id="confirmPopup">Confirm</button>
+                </div>
+            </div>
+
+            <!-- Popup 2 -->
+            <div id="popup2" class="popup2">
+                <div class="popup-content">
+                    <h2>Successful</h2>
+                    <p>Your application was successful<br>Your card will be delivered soon</p>
+                    <button id="closePopup2">Close</button>
+                </div>
+            </div>
+
+            <!-- Popup 3 For Settings -->
+            <div id="popup3" class="popup3">
+                <div class="popup-content">
+                    <h2>Settings</h2>
+                    <p>This is the settings menu for tht website</p>
+                    <button id="deleteAccount">Delete Account</button>
+                    <button id="closePopup3">Close</button>
+                    <button id="save-btn">Save</button>
+                </div>
+            </div>
+
+            <!-- Popup 4 For Delete -->
+            <div id="popup4" class="popup4">
+                <div class="popup-content">
+                    <h2>Waring</h2>
+                    <p>If you proceed, all your data will be deleted<br>Are you sure you want to proceed</p>
+                    <button id="closePopup4">Cancel</button>
+                    <a href="{{ url_for('del_acc') }}"><button id="save-btn">Confirm</button></a>
+                </div>
+            </div>
+
+    <section class="overview">
+        <div class="container">
+
+            <h1>Hi, <span>{{ full_name }}</span></h1>
+            <p>What would you like to do today?</p>
+
+            <div class="cccc">
+                <div class="cards wel-card">
+                    <a href="{{ url_for('acc_sum') }}"><li>Account Summary</li></a>
+                    <a href="{{ url_for('bal') }}"><li>Add Balance</li></a>
+                    <a href="#" id="settingsPopup"><li>Settings</li></a>
+                </div>
+                <div class="cards bal-card">
+                    <h2>Account Balance</h2>
+                    <h3>₹ {{ balance }}</h3>
+                </div>
+            </div>
+
+            <div class="news">
+                <h1>Important</h1>
+                <div class="nhead">
+                    <div class="offers">
+                        <p>Offers</p>
+                        <ul>
+                            <li>Use <a>Aashirvaad Bank</a> credit card to get <span>₹ 7,000</span> voucher in amazon and flipkart</li>
+                            <li>Get <span>10%</span> discount on Samsung Products using <a>Aashirvaad Bank</a> Net Banking</li>
+                            <li>Book movie tickets using <a>Aashirvaad Bank</a> and get <span>one ticket free</span></li>
+                            <li>Save upto <span>20%</span> on air tickets using <a>Aadhirvaad Bank</a> Net Banking</li>
+                        </ul>
+                    </div>
+    
+                    <div class="line"></div>
+    
+                    <div class="noffers">
+                        <p>News</p>
+                        <ul>
+                            <li>Website ready for public use on 4th October 2023</li>
+                            <li>FD Rates are now <span>7.1%</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <section class="container" id="about">
+            <div class="about">
+                <h3>About Us</h3>
+                <p>
+                    Aashirvaad bank is a financial innovation bank established on the preface that fundamental managing an account services ought to be supportive, simple and free. We need to benefit with our individuals, not benefit from them.
+                    We offer a wide extend of keeping money, items and financial administrations to corporate and retail clients through a assortment of conveyance channels.
+                </p>
+            </div>
+            <div class="contact">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i>  Location : Haryana, India</li>
+                    <li><i class="fa-solid fa-phone"></i>  Phone : +91 9252-19824</li>
+                    <li><i class="fa-solid fa-envelope"></i></i>  Gamil : aashirvaadbank@gmail.com</li>
+                </ul>
+            </div>
+        </section>
+        <section class="links">
+            <div class="tc"><a href="{{ url_for('TandC') }}", target="_blank">Terms & Conditions and Privacy Policy</a></div>
+        </section>
+        <section class="copyright">Copyright © Aashirvaad Bank 2023</section>
+    </footer>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+    
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/AB logo bigger.png') }}">
+    <!-- <img src="{{ url_for('static', filename='images/AB logo bigger.png') }}" alt="Image Description"> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Aashirvaad Bank</title>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo"><img src="{{ url_for('static', filename='AB logo bigger.png') }}" alt="Aashirvaad Bank Logo" height="60px"></div>
+            <ul class="links">
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#branches">BRANCHES</a></li>
+                <li><a href="#mob-app">MOBILE APP</a></li>
+                <li><a href="#about">ABOUT</a></li>
+            </ul>
+            <div class="btns">
+                <a href="#whyus" class="mbl-btn">Why Us?</a>
+                <!-- <a href="" class="reg-btn">Register</a> -->
+            </div>
+                
+            <div class="toggle-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#branches">BRANCHES</a></li>
+            <li><a href="#mob-app">MOBILE APP</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <div class="btns">
+                <li><a href="#whyus" class="mbl-btn">Why Us?</a></li>
+                <!-- <li><a href="" class="reg-btn">Register</a></li> -->
+            </div>
+        </div>
+    </header>
+
+    <section class="home">
+        <div class="container">
+            <div class="h-cont">
+                <div class="text-1"><img src="{{ url_for('static', filename='images/AB logo with text.png') }}" alt=""></div>
+                <!-- <div class="text-1"><img src="images/AB logo bigger.png"><span>Aashirvaad Bank</span></div> -->
+                <div class="text-2">Trade Trust With Safety</div>
+                <div class="h-btns">
+                    <a href="{{ url_for('login') }}" class="log-btn">Login</a>
+                    <a href="{{ url_for('register') }}" class="reg-btn">Register</a>
+                </div>
+            </div>
+
+            <div class="advert"><a href="login.html" target="_blank"><img src="{{ url_for('static', filename='images/offer 1.png') }}" alt=""></a></div>
+        </div>
+        
+
+    </section>
+
+    <section class="whyus" id="whyus">
+        <h1>Why Choose Us?</h1>
+        <h5 class="para1">
+            There is just one simple word that describes our Bank <span>Pre - Eminent</span>. Banking here isn't just a Business its a commitment 
+            and matter of Pride and Responsibility. Our Elite group of professionals are dedicated to providing the best service 
+            available by coordinating with the best Cutting Edge Technology and a great level of intelligence.
+        </h5>
+        <h5 class="para2">
+            With assets worth <span>51.972 trillion dollars</span> we hold a unique stand in the World. Ranked in the top 3 in the financial sector 
+            we always look forward to providing the best customer service. Our bank currently has a network of <span>1,158,342 <a href="#branches">branches</a></span> and 
+            <span>2,246,891 ATM's</span> across the World.
+        </h5>
+        <h5 class="para3">
+            Our Bank offers a wide range of banking products and financial services to corporate and retail customers through a variety 
+            of delivery channels and through its group companies. We provide new offers and services at a reasonable payment. 
+        </h5>
+        <h5 class="para4">
+            <span>Aashirvaad Bank</span> makes ur banking experience just a child's play and provides a trouble-free experience.
+        </h5>
+
+        <h3>Customer Reviews</h3>
+        <div class="reviews">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/Ram Chand crp.jpg') }}" alt="Consultant 1">
+                <h2>Ram Chand</h2>
+                <p>&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                <p1>I've been a customer of Aashirvaad Bank for over 10 years and I've always been happy with their service. 
+                    The staff are friendly and helpful, and the interest rates are competitive. I would definitely recommend 
+                    Aashirvaad Bank to anyone looking for a reliable and trustworthy bank.</p1>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/Ashish Sharma.png') }}" alt="Consultant 2">
+                <h2>Ashish Sharma</h2>
+                <p>&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                <p1>I recently opened a savings account with Aashirvaad Bank and I'm very impressed with the customer service. 
+                    I had a few questions about the account and the staff were very helpful and patient in answering them. 
+                    I would definitely recommend Aashirvaad Bank to anyone looking for a good savings account.</p1>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/Sita.png') }}" alt="Consultant 3">
+                <h2>Sita Tripathi</h2>
+                <p>&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                <p1>I'm a small business owner and I use Aashirvaad Bank for my business banking needs. I've found their rates 
+                    to be very competitive, and the customer service has always been excellent. I would definitely recommend 
+                    Aashirvaad Bank to any small business owner.</p1>
+            </div>
+        </div>
+    </section>
+
+    <section class="serv" id="services">
+        <h1>Services</h1>
+        <p>To view all services <a href="login.html">Click Here</a></p>
+        <div class="container">
+
+            <div class="card">
+                <div class="credit">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <h4>Credit/Debit Card</h4>
+                </div>
+                <div class="loan">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <h4>Loan</h4>
+                </div>
+                <div class="fund-rem">
+                    <i class="fa-sharp fa-solid fa-globe"></i>
+                    <h4>International Remittance</h4>
+                </div>
+                <div class="consult">
+                    <i class="fa-solid fa-user"></i>
+                    <h4>Consultant</h4>
+                </div>
+                <div class="consult">
+                    <i class="fa-solid fa-umbrella"></i>
+                    <h4>Insurance</h4>
+                </div>
+                <div class="consult">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <h4>Invest</h4>
+                </div>
+                <div class="consult">
+                    <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>
+                    <h4>Currency Exchange</h4>
+                </div>
+                <div class="consult">
+                    <i class="fa-solid fa-percent"></i>
+                    <h4>Offers</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="branches" id="branches">
+        <h1>Our Major Branches</h1>
+        <div class="img-holder">
+
+            <div class="map">
+                <img src="{{ url_for('static', filename='images/across india.jpeg') }}" alt="">
+                <h4>Across India</h4>
+            </div>
+
+            <div class="map">
+                <img src="{{ url_for('static', filename='images/world map.jpg') }}" alt="">
+                <h4>Across World</h4>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="mob-app" id="mob-app">
+        <div class="all">
+            <div class="text-1"><span>Aashirvaad Bank</span> is now on your fingertips</div>
+            <div class="text-2">
+                Aashirvaad Bank is now available on mobile.<br><br>
+                The power of banking lies in your hands. Access all the facilities of our bank on mobile for free!!<br>
+                Reward of ₹10,000 on downlaod for first 20 customers.<br><br>
+                Downlaod the app today.<br>
+                <span>(<a href="#about">Contact</a> us for aditional app information )</span>
+            </div>
+            <!-- <button class="down-btn" ONCLICK="alert('App under maintenance\nPlease try again later\nThank you for your patience')"><p>DOWNLOAD<br><span>(Beta version)</span></p></button> -->
+            <button class="down-btn" id="down-btn"><p>DOWNLOAD<br><span>(Beta version)</span></p></button>
+            <!-- Popup -->
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <h2>Maintenance Break</h2>
+                    <p>App is under maintenance<br>Please try again later<br><br>Thank you for your patience</p>
+                    <button id="closePopup">Close</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="app-img">
+            <div class="container">
+                <img src="{{ url_for('static', filename='images/Mobile App.png') }}" alt="">
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <section class="container" id="about">
+            <div class="about">
+                <h3>About Us</h3>
+                <p>
+                    Aashirvaad bank is a financial innovation bank established on the preface that fundamental managing an account services ought to be supportive, simple and free. We need to benefit with our individuals, not benefit from them.
+                    We offer a wide extend of keeping money, items and financial administrations to corporate and retail clients through a assortment of conveyance channels.
+                </p>
+            </div>
+            <div class="contact">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i>  Location : Haryana, India</li>
+                    <li><i class="fa-solid fa-phone"></i>  Phone : +91 9252-19824</li>
+                    <li><i class="fa-solid fa-envelope"></i></i>  Gamil : aashirvaadbank@gmail.com</li>
+                </ul>
+            </div>
+            <div class="social">
+                <h3>Social</h3>
+                <ul>
+                    <li><a href="https://github.com/A-nshuman" target="_blank" class="gh"><i class="fa-brands fa-github"></i> @A-nshuman</a></li>
+                    <li><a href="https://twitter.com/A_nshuman" target="_blank" class="twitter"><i class="fa-brands fa-twitter"></i> @A_nshuman</a></li>
+                    <!-- <li><a href="https://twitter.com/A_nshuman" target="_blank" class="twitter"><i class="fa-brands fa-x-twitter"></i> @A_nshuman</a></li> -->
+                    <li><a href="https://www.instagram.com/Anshu_man_man" target="_blank" class="ig"><i class="fa-brands fa-instagram"></i> @Anshu_man_man</a></li>
+                    <li><a href="https://www.linkedin.com/in/anshuman-bhardwaj-89476b23b" target="_blank" class="ln"><i class="fa-brands fa-linkedin"></i> @Anshuman Bhardwaj</a></li>
+                    <li><a href="https://anshumans-portfolio.netlify.app/" target="_blank" class="wb"><i class="fa-solid fa-link"></i> Portfolio</a></li>
+                </ul>
+                </div>
+            </div>
+        </section>
+        <section class="links">
+            <div class="tc"><a href="T and C.html">Terms & Conditions and Privacy Policy</a></div>
+        </section>
+        <section class="copyright">Copyright © Aashirvaad Bank 2023</section>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js')}}"></script>
+
+</body>
+</html>

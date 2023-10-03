@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='AB logo bigger.png') }}">
+    <title>Delete Account</title>
+</head>
+
+<style>
+    body {
+			margin: 0;
+			padding: 0;
+			background-color: khaki;
+			font-family: sans-serif;
+			font-size: 16px;
+		}
+
+    nav {
+        background: rgb(255, 119, 34);
+        position: fixed;
+        z-index: 999;
+        height: 65px;
+        line-height: 65px;
+        position: relative;
+        max-width: 100%;
+        padding: 0 20px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav img {
+        margin-top: 25px;
+        height: 70px;
+        padding: 5px;
+    }
+
+    .goback {
+        font-size: 16px;
+        width: 100px;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-decoration: none;
+        transition: ease-in-out 0.2s;
+        border-radius: 5px;
+    }
+
+    .goback:hover {
+        background-color: #fff;
+        color: rgb(255, 119, 34);
+        text-decoration: none;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-top: 0;
+        color: #333;
+    }
+
+    p {
+        font-size: 18px;
+        margin-top: 10px;
+        color: #666;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    textarea {
+        width: auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: none;
+    }
+
+    .button-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .delete-button {
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .delete-button:hover {
+        background-color: #c0392b;
+    }
+
+    .cancel-button {
+        color: #333;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+
+    .cancel-button:hover {
+        color: #555;
+    }
+</style>
+
+<body>
+    <nav>
+		<a href="{{ url_for('dashboard') }}" class="logo"><img src="{{ url_for('static', filename='images/AB logo with text white.png') }}" alt="Bank Logo"></a>
+		<a href="{{ url_for('dashboard') }}" class="goback">&#8592; Back</a>
+	</nav>
+    <div class="container">
+        <h1>We're sorry to see you go!</h1>
+        <p>Are you sure you want to delete your account?</p>
+
+        <form action="/del_acc" method="POST">
+            <div class="form-group">
+                <label for="reason">Reason for Deletion:</label>
+                <textarea id="reason" name="reason" rows="4" cols="50" required></textarea>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" name="confirm" class="delete-button">Delete Account</button>
+                <a href="{{ url_for('dashboard')}}" class="cancel-button">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

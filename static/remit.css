@@ -1,0 +1,326 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ----------- Navbar Start ----------- */
+nav {
+  background: rgb(255, 119, 34);
+  position: fixed;
+  z-index: 999;
+  height: 65px;
+  line-height: 65px;
+  position: relative;
+  max-width: 100%;
+  padding: 0 20px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav img {
+      margin-top: 25px;
+  height: 70px;
+  padding: 5px;
+}
+
+.goback {
+  font-size: 16px;
+  width: 100px;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  transition: ease-in-out 0.2s;
+  border-radius: 5px;
+}
+
+.goback:hover {
+  background-color: #fff;
+  color: rgb(255, 119, 34);
+  text-decoration: none;
+}
+/* ----------- Navbar End ----------- */
+
+.remit{
+  height: 100vh;
+  background: khaki;
+  padding-top: 64px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.remit .container{
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  height: 350px;
+  margin: 50px 20px;
+}
+
+.remit .container .col{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.remit .container .row1,
+.remit .container .row2{
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  gap: 30px;
+  padding: 20px 10px;
+}
+
+.remit .container .row2{
+  border-left: 1px solid black;
+}
+
+.remit .container .purpose{
+  display: flex;
+  flex-direction: row;
+}
+
+.remit .container .purpose .custom_select{
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.remit .container .purpose .custom_select:before{
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  border: 8px solid;
+  border-color: #d5dbd9 transparent transparent transparent;
+  pointer-events: none;
+}
+
+.remit .container .purpose .custom_select select{
+  -webkit-appearance: none;
+  -moz-appearance:   none;
+  appearance:        none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 1px solid #d5dbd9;
+  border-radius: 3px;
+}
+
+.remit .input{
+  border: 0;
+  backdrop-filter: blur(1.15 );
+}
+
+.remit .container .col .inputfield,
+.remit .container .narrative{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remit .container .col .inputfield label,
+.remit .container .narrative label{
+  width: 200px;
+  color: #757575;
+  /* margin-right: 10px; */
+  font-size: 20px;
+}
+
+.remit .container .col .input,
+.remit .container .narrative .input{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.remit .container .inputfield .input:focus,
+.remit .container .narrative .input:focus,
+.remit .container .inputfield .custom_select:focus{
+  border: 1px solid #fec107;
+}
+
+.remit .container .narrative{
+  padding: 20px 10px;
+  max-width: 850px;
+  width: 100%;
+}
+
+.remit .container .send-btn{
+  padding: 30px 0;
+}
+
+.remit .container .send-btn button{
+  outline: 0;
+  border: 2px solid rgba(0,0,0,0);
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remit .container .send-btn a{
+  background: rgb(255,119,34);
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 20px;
+  padding: 10px 15px;
+  transition: all 0.2s ease;
+}
+
+.remit .container .send-btn button:hover a{
+  background: none;
+  border: 2px solid rgba(0,0,0,1);
+  color: black;
+  border-radius: 25px;
+}
+
+.popup{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.popup-content1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.popup-content1 button {
+  padding: 10px 20px;
+  background-color: crimson;
+  border: 2px solid crimson;
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+
+.popup-content1 button:hover {
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px solid crimson;
+  border-radius: 50px;
+  cursor: pointer;
+  color: crimson;
+}
+
+.popup-content1 button:hover {
+  color: crimson;
+  border: 2px solid crimson;
+}
+
+.popup h2{
+  padding-bottom: 10px;
+}
+
+.flashes {
+  list-style: none;
+  background: khaki;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flashes li {
+  margin: 0;
+  padding: 10px 15px;
+  color: #fff; /* Text color for messages */
+  border-radius: 5px;
+}
+
+/* Define different styles for different flash categories */
+.flash {
+  background-color: rgb(255,119,34); /* Blue background for info messages */
+}
+
+@media (max-width:880px){
+  .remit .container .row1,
+  .remit .container .row2{
+    width: 340px;
+  }
+
+  .remit .container .narrative{
+    max-width: 730px;
+  }
+}
+
+@media (max-width:760px){
+  .remit .container .col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .remit .container{
+    height: auto;
+  }
+
+  .remit .container .row2{
+    border-left: 0;
+    padding: 10px 10px;
+  }
+
+  .remit .container .col{
+    gap: 0;
+  }
+
+  .remit .container .narrative{
+    max-width: 340px;
+  }
+}
+
+@media (max-width:400px){
+  .remit .container .col .inputfield label,
+  .remit .container .narrative label{
+    font-size: 15px;
+  }
+
+  .remit .container .col .row1,
+  .remit .container .col .row2,
+  .remit .container .narrative{
+    max-width: 300px;
+  }
+
+  .remit .container .send-btn a{
+    font-size: 15px;
+  }
+}

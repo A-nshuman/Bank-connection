@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" href="{{ url_for('static', filename='images/AB logo bigger.png') }}">
+	<title>Consultants - Bank Website</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: khaki;
+			font-family: sans-serif;
+			font-size: 16px;
+		}
+
+		nav {
+			background: rgb(255, 119, 34);
+			position: fixed;
+			z-index: 999;
+			height: 65px;
+			line-height: 65px;
+			position: relative;
+			max-width: 100%;
+			padding: 0 20px;
+			margin: auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		nav img {
+			margin-top: 25px;
+			height: 70px;
+			padding: 5px;
+		}
+
+		.goback {
+			font-size: 16px;
+			width: 100px;
+			height: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			text-decoration: none;
+			transition: ease-in-out 0.2s;
+			border-radius: 5px;
+		}
+
+		.goback:hover {
+			background-color: #fff;
+			color: rgb(255, 119, 34);
+			text-decoration: none;
+		}
+
+
+		h1 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		section {
+			margin: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: flex-start;
+		}
+
+		.card {
+			width: 300px;
+			background-color: white;
+			box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+			margin: 20px;
+			padding: 20px;
+			border-radius: 5px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+
+		.card img {
+			width: 150px;
+			height: 150px;
+			object-fit: cover;
+			border-radius: 50%;
+			margin-bottom: 20px;
+		}
+
+		.card h2 {
+			margin: 0;
+			font-size: 24px;
+			font-weight: bold;
+		}
+
+		.card p {
+			margin: 10px 0 5px;
+			font-size: 30px;
+			color: gold;
+		}
+
+		.apply-now {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin: 50px 0;
+			text-align: center;
+		}
+
+		.apply-now button {
+			padding: 10px 20px;
+			background-color: rgb(255, 119, 34);
+			color: white;
+			border: none;
+			border-radius: 5px;
+			font-size: 20px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.apply-now button:hover {
+			background-color: rgba(255, 119, 34, 0.567);
+		}
+
+		.popup-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 999;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease, visibility 0.3s ease;
+		}
+
+		.popup-overlay.active {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.popup {
+			background-color: white;
+			box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+			padding: 30px;
+			border-radius: 5px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			max-width: 500px;
+		}
+
+		.popup h2 {
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+
+		.popup p {
+			margin-bottom: 30px;
+		}
+
+		.popup button {
+			padding: 10px 20px;
+			background-color: rgb(255, 119, 34);
+			color: white;
+			border: none;
+			border-radius: 5px;
+			font-size: 20px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.popup button:hover {
+			background-color: rgba(255, 119, 34, 0.8);
+		}
+
+		@media screen and (max-width: 600px) {
+			section {
+				margin: 20px;
+			}
+
+			.card {
+				width: 100%;
+			}
+
+			.apply-now {
+				flex-direction: column;
+			}
+
+			.apply-now button {
+				margin-top: 20px;
+			}
+
+			.popup {
+				padding: 20px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav>
+		<a href="{{ url_for('dashboard') }}" class="logo"><img
+				src="{{ url_for('static', filename='images/AB logo with text white.png') }}" alt="Bank Logo"></a>
+		<a href="{{ url_for('dashboard') }}" class="goback">&#8592; Back</a>
+	</nav>
+	<h1>Our Star Consultants</h1>
+	<section>
+		<div class="card">
+			<img src="{{ url_for('static', filename='images/gopal tiwari.png') }}" alt="Consultant 1">
+			<h2>Gopal Tiwari</h2>
+			<p>&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+		</div>
+		<div class="card">
+			<img src="{{ url_for('static', filename='images/Krishn Narayan.png') }}" alt="Consultant 2">
+			<h2>Krishn Narayan</h2>
+			<p>&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+		</div>
+		<div class="card">
+			<img src="{{ url_for('static', filename='images/Suraj Shukla.png') }}" alt="Consultant 3">
+			<h2>Suraj Shukla</h2>
+			<p>&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+		</div>
+	</section>
+	<div class="apply-now">
+		<h3>Apply for your personal consultant now!!!</h3>
+		<button id="applyButton">Apply Now</button>
+	</div>
+	<div class="popup-overlay" id="popupOverlay">
+		<div class="popup">
+			<h2>Thank You for Applying!</h2>
+			<p>Your request is being processed, and you will be provided a personal consultant soon.</p>
+			<button id="closeButton">Close</button>
+		</div>
+	</div>
+
+	<script>
+		const applyButton = document.getElementById('applyButton');
+		const popupOverlay = document.getElementById('popupOverlay');
+		const closeButton = document.getElementById('closeButton');
+
+		applyButton.addEventListener('click', () => {
+			popupOverlay.classList.add('active');
+		});
+
+		closeButton.addEventListener('click', () => {
+			popupOverlay.classList.remove('active');
+		});
+	</script>
+</body>
+
+</html>

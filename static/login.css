@@ -1,0 +1,136 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body{
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-page {
+  width: 430px;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  padding: 45px;
+  padding-top: 35px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form h1{
+    font-family: 'Yatra One', cursive;
+    color: rgb(255, 119, 34);
+    font-size: 42px;
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form .btns{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    color: #FFFFFF;
+    width: 340px;
+    padding: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 0;
+    transition: background 0.2s ease-in-out;
+  }
+
+.form button a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.form .login-btn{
+  background: #4CAF50;
+}
+
+.form .cancel-btn{
+    background: crimson;
+}
+
+.form button:hover a{
+    color: black;
+}
+
+.form button:hover{
+    color: black;
+    background: rgba(127, 127, 127, 0.397);
+    backdrop-filter: blur(1.15);
+}
+
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+body {
+    background: rgb(255,154,51);
+    background: linear-gradient(135deg, rgba(255,119,34,1) 0%, rgba(255,154,51,1) 67%, rgb(222, 176, 8) 100%);
+    font-family: "Roboto", sans-serif;
+}
+
+@media (max-width:500px){
+    .login-page {
+        width: 400px;
+    }
+}
+
+@media (max-width:450px){
+    .login-page {
+        width: 300px;
+    }
+    .form h1{
+        font-size: 30px;
+    }
+} 
+ 
+.flashes {
+  list-style: none;
+  background: khaki;
+  border-radius: 5px;
+  padding: 0 0;
+  margin: 0;
+}
+
+.flashes li {
+  margin: 0;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.flash {
+  background-color: crimson ;
+}

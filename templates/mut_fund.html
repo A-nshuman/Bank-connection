@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="{{ url_for('static', filename='images/AB logo bigger.png') }}">
+  <title>Mutual Funds</title>
+  <style>
+    body {
+      background-color: khaki;
+      margin: 0;
+      padding: 0;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    /* Navbar */
+    nav {
+			background: rgb(255, 119, 34);
+			position: fixed;
+			z-index: 999;
+			height: 65px;
+			line-height: 65px;
+			position: relative;
+			max-width: 100%;
+			padding: 0 20px;
+			margin: auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		nav img {
+      		margin-top: 25px;
+			height: 70px;
+			padding: 5px;
+		}
+
+		.goback {
+			font-size: 16px;
+			width: 100px;
+			height: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			text-decoration: none;
+			transition: ease-in-out 0.2s;
+			border-radius: 5px;
+		}
+
+		.goback:hover {
+			background-color: #fff;
+			color: rgb(255, 119, 34);
+			text-decoration: none;
+		}
+    
+    .mutual-fund-card {
+      background-color: white;
+      width: 500px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      margin: 20px;
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .mutual-fund-card h3 {
+      margin-top: 10px;
+      font-size: 20px;
+    }
+    
+    .mutual-fund-card p {
+      margin-top: 5px;
+    }
+    
+    .apply-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: rgb(255, 119, 34);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s;
+    }
+    
+    .popup-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      text-align: center;
+    }
+    
+    .popup-content h2 {
+      margin-top: 0;
+    }
+    
+    .close-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: rgb(255, 119, 34);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .popup.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .rows{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .row1, .row2, .row3{
+        display: flex;
+        flex-direction: row;
+    }
+
+    @media(max-width:860px){
+        .mutual-fund-card{
+          width: auto;
+        }
+        .row1, .row2, .row3{
+            flex-direction: column;
+            width: auto;
+        }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('dashboard') }}" class="logo"><img src="{{ url_for('static', filename='images/AB logo with text white.png') }}" alt="Bank Logo"></a>
+    <a href="{{ url_for('dashboard') }}" class="goback">&#8592; Back</a>
+  </nav>
+  
+  <div class="rows">
+      <div class="row1">
+          <div class="mutual-fund-card">
+              <h3>Vanguard 500 Index Fund</h3>
+              <p>A mutual fund that tracks the performance of the S&P 500 index, providing investors with exposure to a diversified portfolio of large-cap U.S. stocks.</p>
+              <button class="apply-button">Apply Now</button>
+          </div>
+      
+          <div class="mutual-fund-card">
+              <h3>Fidelity Contrafund</h3>
+              <p>An actively managed mutual fund that seeks long-term capital appreciation by investing in a diversified portfolio of growth-oriented stocks.</p>
+              <button class="apply-button">Apply Now</button>
+          </div>
+        </div>
+        
+        <div class="row2">
+          <div class="mutual-fund-card">
+              <h3>T. Rowe Price Equity Income Fund</h3>
+              <p>This mutual fund focuses on dividend-paying stocks, aiming for long-term capital growth and income generation. It primarily invests in established companies with a history of paying dividends.</p>
+              <button class="apply-button">Apply Now</button>
+          </div>
+
+          <div class="mutual-fund-card">
+              <h3>PIMCO Total Return Fund</h3>
+              <p>Managed by Pacific Investment Management Company (PIMCO), this mutual fund invests primarily in a diversified portfolio of bonds. It aims to provide income and capital appreciation by actively managing fixed-income securities.</p>
+              <button class="apply-button">Apply Now</button>
+          </div>
+        </div>
+        
+        <div class="row3">
+          <div class="mutual-fund-card">
+              <h3>TIAA-CREF Bond Fund</h3>
+              <p>This mutual fund focuses on fixed-income investments, primarily investing in bonds issued by governments, municipalities, and corporations. It aims to provide income while maintaining stability and managing risk.</p>
+              <button class="apply-button">Apply Now</button>
+          </div>
+      
+          <div class="mutual-fund-card">
+              <h3>BlackRock Global Allocation Fund</h3>
+              <p>This mutual fund takes a global approach to asset allocation, investing in a mix of stocks, bonds, and other securities worldwide. The fund manager adjusts the portfolio based on market conditions and seeks long-term growth.</p>
+              <button class="apply-button">Apply Now</button>
+          </div>
+      </div>
+  </div>
+    
+    <div class="popup" id="popup-thankyou">
+      <div class="popup-content">
+        <h2>Thank you for applying!</h2>
+        <p>Additional information will be sent to you via email.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+  
+    <script>
+      const applyButtons = document.querySelectorAll('.apply-button');
+      const popupThankYou = document.getElementById('popup-thankyou');
+      const closeButtons = document.querySelectorAll('.close-button');
+  
+      applyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          popupThankYou.classList.add('active');
+        });
+      });
+  
+      closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          popupThankYou.classList.remove('active');
+        });
+      });
+    </script>
+  </body>
+  </html>
+  
+
+   <!-- <!DOCTYPE html>
+   <html>
+   <head>
+     <title>Mutual Funds</title>
+     <link rel="stylesheet" type="text/css" href="styles.css">
+     <style>
+       .mutual-fund-cards {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+         gap: 20px;
+         padding: 20px;
+       }
+   
+       .mutual-fund-card {
+         background-color: #ffffff;
+         border-radius: 10px;
+         padding: 20px;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       }
+   
+       .mutual-fund-card img {
+         width: 100%;
+         height: auto;
+         margin-bottom: 10px;
+         border-radius: 5px;
+       }
+     </style>
+   </head>
+   <body>
+     <header class="navbar" style="background-color: rgb(255, 119, 34); height: 65px;">
+       <div class="logo">
+       </div>
+       <button class="back-button">Back</button>
+     </header>
+   
+     <div class="mutual-fund-cards">
+       <div class="mutual-fund-card">
+         <h3>Vanguard 500 Index Fund</h3>
+         <p>A passively managed mutual fund that aims to track the performance of the S&P 500 Index, providing broad market exposure to U.S. large-cap stocks.</p>
+         <button class="apply-button">Apply Now</button>
+       </div>
+   
+       <div class="mutual-fund-card">
+         <h3>Fidelity Contrafund</h3>
+         <p>An actively managed mutual fund that seeks long-term capital appreciation by investing in a diversified portfolio of growth-oriented stocks.</p>
+         <button class="apply-button">Apply Now</button>
+       </div>
+       <div class="mutual-fund-card">
+        <h3>Vanguard 500 Index Fund</h3>
+        <p>A passively managed mutual fund that aims to track the performance of the S&P 500 Index, providing broad market exposure to U.S. large-cap stocks.</p>
+        <button class="apply-button">Apply Now</button>
+      </div>
+  
+      <div class="mutual-fund-card">
+        <h3>Fidelity Contrafund</h3>
+        <p>An actively managed mutual fund that seeks long-term capital appreciation by investing in a diversified portfolio of growth-oriented stocks.</p>
+        <button class="apply-button">Apply Now</button>
+      </div>
+      <div class="mutual-fund-card">
+        <h3>Vanguard 500 Index Fund</h3>
+        <p>A passively managed mutual fund that aims to track the performance of the S&P 500 Index, providing broad market exposure to U.S. large-cap stocks.</p>
+        <button class="apply-button">Apply Now</button>
+      </div>
+  
+      <div class="mutual-fund-card">
+        <h3>Fidelity Contrafund</h3>
+        <p>An actively managed mutual fund that seeks long-term capital appreciation by investing in a diversified portfolio of growth-oriented stocks.</p>
+        <button class="apply-button">Apply Now</button>
+      </div>
+   
+     </div>
+   
+     <div class="popup" id="popup-thankyou">
+       <div class="popup-content">
+         <h2>Thank you for applying!</h2>
+         <p>Additional information will be sent to you via email.</p>
+         <button class="close-button">Close</button>
+       </div>
+     </div>
+   
+     <script>
+       const applyButtons = document.querySelectorAll('.apply-button');
+       const popupThankYou = document.getElementById('popup-thankyou');
+       const closeButtons = document.querySelectorAll('.close-button');
+   
+       applyButtons.forEach(button => {
+         button.addEventListener('click', () => {
+           popupThankYou.classList.add('active');
+         });
+       });
+   
+       closeButtons.forEach(button => {
+         button.addEventListener('click', () => {
+           popupThankYou.classList.remove('active');
+         });
+       });
+     </script>
+   </body>
+   </html>
+    -->

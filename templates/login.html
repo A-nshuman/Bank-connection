@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="{{ url_for('static', filename='images/AB logo bigger.png') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    <title>Login - Aashirvaad Bank</title>
+</head>
+
+<body>
+
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+            <li class="flash">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+
+    <section class="loginform">
+      <div class="login-page">
+         <div class="form">
+            <h1>Aashirvaad Bank</h1>
+           <form class="login-form" action="/login" method="POST">
+             <input type="text" id="email" name="email" placeholder="Email" required/>
+             <input type="password" id="upwd" name="upwd" placeholder="Password" required/>
+             <div class="btns">
+               <!-- <button class="login-btn" type="submit"><a href="{{ url_for('dashboard') }}">login</a></button> -->
+               <button class="login-btn" type="submit">login</button>
+               <button class="cancel-btn"><a href="{{ url_for('index') }}">cancel</a></button>
+             </div>
+             <p class="message"><a href="">Forgot password</a></p>
+             <p class="message">Don't have an account? <a href="{{ url_for('register') }}">Create an account</a></p>
+           </form>
+         </div>
+       </div>
+    </section>
+    
+
+</body>
+</html>

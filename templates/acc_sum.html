@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="{{ url_for('static', filename='images/AB logo bigger.png') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='acc_sum.css') }}">
+    <title>Account Summary</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    
+    <nav>
+        <a href="{{ url_for('dashboard') }}" class="logo"><img src="{{ url_for('static', filename='images/AB logo with text white.png') }}" alt="Bank Logo"></a>
+        <a href="{{ url_for('dashboard') }}" class="goback">&#8592; Back</a>
+    </nav>
+
+    <section id="summary">
+        <h1>Account Summary</h1>
+        <table class="statement-table">
+            <thead>
+                <tr>
+                    <th>Statement</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for statement in statements %}
+                    <tr>
+                        <td>{{ statement.Statement }}</td>
+                        <td class="time">{{ statement.entry_datetime }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+<script>
+    function goBack() {
+    window.history.back();
+}
+</script>
+
+</body>
+</html>

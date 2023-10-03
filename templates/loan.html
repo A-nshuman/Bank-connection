@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="{{ url_for('static', filename='images/AB logo bigger.png') }}">
+  <title>Loan Cards</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    /* Navbar */
+    nav {
+			background: rgb(255, 119, 34);
+			position: fixed;
+			z-index: 999;
+			height: 65px;
+			line-height: 65px;
+			position: relative;
+			max-width: 100%;
+			padding: 0 20px;
+			margin: auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		nav img {
+      		margin-top: 25px;
+			height: 70px;
+			padding: 5px;
+		}
+
+		.goback {
+			font-size: 16px;
+			width: 100px;
+			height: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			text-decoration: none;
+			transition: ease-in-out 0.2s;
+			border-radius: 5px;
+		}
+
+		.goback:hover {
+			background-color: #fff;
+			color: rgb(255, 119, 34);
+			text-decoration: none;
+		}
+
+    /* Page content */
+    body {
+      background-color: khaki;
+    }
+
+    .loan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 20px;
+      padding: 20px;
+    }
+
+    .loan-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .loan-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .loan-details {
+      margin-bottom: 20px;
+    }
+
+    .apply-button {
+      background-color: rgb(255, 119, 34);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .close-button {
+      background-color: rgb(255, 119, 34);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .loan-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="{{ url_for('dashboard') }}" class="logo"><img src="{{ url_for('static', filename='images/AB logo with text white.png') }}" alt="Bank Logo"></a>
+    <a href="{{ url_for('dashboard') }}" class="goback">&#8592; Back</a>
+  </nav>
+
+  <!-- Page content -->
+  <div class="loan-grid">
+    <div class="loan-card">
+      <div class="loan-title">Personal Loan</div>
+      <div class="loan-details">
+        Get the financial support you need with our hassle-free Personal Loan options. Whether you're planning a dream vacation, a wedding, or need funds for any personal expense, our competitive interest rates and flexible repayment terms will make it easier for you to achieve your goals.
+      </div>
+      <button class="apply-button">Apply Now</button>
+    </div>
+    <div class="loan-card">
+    <div class="loan-title">Home Loan</div>
+    <div class="loan-details">
+      Turn your dream of owning a home into reality with our tailored Home Loan solutions. Our expert advisors will guide you through the process, helping you secure the perfect loan with favorable interest rates. With easy repayment options, you'll be moving into your new home sooner than you think.
+    </div>
+    <button class="apply-button">Apply Now</button>
+    </div>
+    <div class="loan-card">
+    <div class="loan-title">Car Loan</div>
+    <div class="loan-details">
+      Experience the joy of driving your dream car with our convenient Car Loan offerings. We understand the excitement of owning a vehicle, and our low-interest loans and quick approval process ensure that you hit the road without delay. Choose the repayment plan that suits you best and enjoy the convenience of easy EMIs.
+    </div>
+    <button class="apply-button">Apply Now</button>
+    </div>
+    <div class="loan-card">
+    <div class="loan-title">Education Loan</div>
+    <div class="loan-details">
+      Invest in your future with our Education Loan packages designed to support your academic aspirations. Whether you're pursuing higher studies within the country or abroad, our competitive interest rates and flexible repayment options will ease your financial burden and pave the way for your success.
+    </div>
+    <button class="apply-button">Apply Now</button>
+    </div>
+    <div class="loan-card">
+    <div class="loan-title">Healthcare Loan</div>
+    <div class="loan-details">
+      Your health is a priority, and so is your peace of mind. Our Healthcare Loan options ensure that you or your loved ones receive the best medical care without financial stress. With our supportive loan plans, you can focus on recovery while we take care of the expenses.
+    </div>
+    <button class="apply-button">Apply Now</button>
+    </div>
+    <div class="loan-card">
+    <div class="loan-title">Gold Loan</div>
+    <div class="loan-details">
+      Unlock the potential of your gold assets with our Gold Loan services. When you need immediate funds for emergencies or opportunities, our secure and straightforward process allows you to borrow against your gold possessions. Benefit from transparent terms and quick disbursals to meet your financial needs with ease.
+    </div>
+    <button class="apply-button">Apply Now</button>
+    </div>
+    
+      </div>
+      <!-- Popup -->
+      <div class="popup">
+        <div class="popup-content">
+          <h2>Thank you for applying!</h2>
+          <p>More details about the loan will be sent to your email.</p>
+          <button class="close-button">Close</button>
+        </div>
+      </div>
+      <script>
+        // Apply button click event listener
+        var applyButtons = document.getElementsByClassName("apply-button");
+        for (var i = 0; i < applyButtons.length; i++) {
+          applyButtons[i].addEventListener("click", function() {
+            showPopup();
+          });
+        }
+    
+        // Close button click event listener
+        var closeButtons = document.getElementsByClassName("close-button");
+        for (var i = 0; i < closeButtons.length; i++) {
+          closeButtons[i].addEventListener("click", function() {
+            closePopup();
+          });
+        }
+    
+        // Show popup function
+        function showPopup() {
+          var popup = document.getElementsByClassName("popup")[0];
+          popup.style.display = "flex";
+        }
+    
+        // Close popup function
+        function closePopup() {
+          var popup = document.getElementsByClassName("popup")[0];
+          popup.style.display = "none";
+        }
+      </script>
+    </body>
+    </html>
